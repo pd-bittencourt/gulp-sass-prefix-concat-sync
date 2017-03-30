@@ -1,5 +1,5 @@
 {
-  "name": "gulp-sass-autoprefixer-concat-browsersync",
+  "name": "gulp-sass-prefix-concat-sync",
   "version": "0.0.1",
   "description": "A starter project including full setup for GulpJS, SASS, Autoprefixer, Concat & BrowserSync",
   "main": "gulpfile.js",
