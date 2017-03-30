@@ -3,7 +3,6 @@ var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var concat      = require('gulp-concat');
-var rename      = require('gulp-rename');
 
 var reload      = browserSync.reload;
 
@@ -13,7 +12,7 @@ var reload      = browserSync.reload;
 var src = {
       scss: './src/scss/**',
       js:   './src/js/*.js',
-      jade: './src/*.html'
+      htmlsrc: './src/html/*.html'
 };
 var dest = {
       css:  './build/css',
@@ -52,8 +51,7 @@ gulp.task('scripts', function(){
 // html
 gulp.task('html', function() {
   return gulp
-  .src(src.jade)
-  .pipe(rename("index.html"))
+  .src(src.htmlsrc)
   .pipe(gulp.dest(dest.html));
 });
 
@@ -62,11 +60,11 @@ gulp.task('html-watch', ['html'], reload);
 
 /* ====== WATCH & SERVE ====== */
 
-// Watch sass, jade files for changes & recompile
+// Watch sass, htmlsrc files for changes & recompile
 gulp.task('watch', function() {
   gulp.watch(src.scss, ['sass']);
   gulp.watch(src.js, ['scripts']);
-  gulp.watch(src.jade, ['html-watch']);
+  gulp.watch(src.htmlsrc, ['html-watch']);
 });
 
 // Gulp default task
